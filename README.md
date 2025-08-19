@@ -10,9 +10,9 @@ Add Wasi target:
 rustup target add wasm32-wasip1
 ```
 
-Set the `WASI_SDK` path to the wasi installation folder (in case it is not the default `/opt/wasi-sdk`), make sure the right `clang` is on the path:
+Set the `WASI_SDK` path to the WASI installation folder (in case it is not the default `/opt/wasi-sdk`), make sure the right `clang` is on the path:
 ```bash
-export WASI_SDK=/opt/wasi-sdk
+export WASI_SDK=<path to wasi-sdk>
 export PATH=$WASI_SDK/bin:$PATH
 ```
 
@@ -20,6 +20,6 @@ export PATH=$WASI_SDK/bin:$PATH
 
 Compile and run using `wasmtime`:
 ```bash
-cargo 
+cargo build --target wasm32-wasip1
 wasmtime --dir tmp::/ target/wasm32-wasip1/debug/wasi-sql-error.wasm
 ```
